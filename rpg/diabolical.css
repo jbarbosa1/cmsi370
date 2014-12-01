@@ -1,5 +1,5 @@
-body{
-	background-color: DarkGray;
+body{ /* JD: 12 */
+	background-color: DarkGray; /* JD: 6 */
 }
 
 .header {
@@ -22,7 +22,7 @@ h3 {
 	padding: 10px;
 }
 
-.tableChar{
+.tableChar{ /* JD: 12 ...couple more times below, too */
 	background-color: whitesmoke;
 }
 

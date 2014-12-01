@@ -1,4 +1,5 @@
-var generateList = function(){
+// JD: 13
+var generateList = function(){ // JD: 12
 	$.getJSON(
 	    "http://lmu-diabolical.appspot.com/characters",
 	    function (characters) {
@@ -18,7 +19,7 @@ var generateList = function(){
 	);
 }
 
-var addCharacter = function(){
+var addCharacter = function(){ // JD: 12
 	var charName = $(".charName").val();
 	var charClass = $(".charClass").val();
 	var gender = $(".gender").val();
@@ -26,6 +27,7 @@ var addCharacter = function(){
 	var money = parseInt($(".money").val());
 
 	$.ajax({
+        // JD: 14 ...from here on down.
    type: 'POST',
     url: "http://lmu-diabolical.appspot.com/characters",
     data: JSON.stringify({
@@ -38,7 +40,7 @@ var addCharacter = function(){
     contentType: "application/json",
     dataType: "json",
     accept: "application/json",
-   complete: function (jqXHR, textStatus) {
+   complete: function (jqXHR, textStatus) { // JD: 1
         // The new character can be accessed from the Location header.
         console.log("You may access the new character at:" +
             jqXHR.getResponseHeader("Location"));
