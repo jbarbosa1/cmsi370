@@ -47,7 +47,7 @@ var BoxesTouch = {
     /**
      * Tracks a box as it is rubberbanded or moved across the drawing area.
      */
-    trackDrag: function (event) {
+    trackDrag:  function (event) {
         $.each(event.changedTouches, function (index, touch) {
             if (this.drawingBox) {
                 var newOffset = {
@@ -76,10 +76,16 @@ var BoxesTouch = {
     endDrag: function (event) {
         $.each(event.changedTouches, function (index, touch) {
             if (this.drawingBox) {
-                
 
                 this.drawingBox = null;
             } else if (touch.target.movingBox) {
+                var oscar = $("#theGrouch").offset();
+                var oscarEnd = oscar.left + $("#theGrouch").width();
+                var oscarBottom = oscar.top + $("#theGrouch").height();
+
+                if((touch.pageX > oscar.left) && (touch.pageX < oscarEnd) && (touch.pageY > oscar.top) && (touch.pageY < oscarBottom)){
+                    touch.target.movingBox.remove();
+                }
                 touch.target.movingBox = null;
             }
         });
