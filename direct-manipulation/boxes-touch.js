@@ -29,11 +29,12 @@ var BoxesTouch = {
             if(!touch.target.movingBox){
                 this.anchorX = touch.pageX;
                 this.anchorY = touch.pageY;
-                this.drawingBox = $("<div></div>")
-                this.drawingBox
-                    .appendTo($("#drawing-area"))
+                this.drawingBox = $("<div></div>") // JD: 8
+                this.drawingBox // JD: 5
+                    .appendTo($("#drawing-area")) // JD: 4
                     .addClass("box")
                     .offset({ left: this.anchorX, top: this.anchorY });
+                // JD: 4
                 $("#drawing-area").find("div.box").each(function (index, element) {
                     element.addEventListener("touchstart", BoxesTouch.startMove, false);
                     element.addEventListener("touchend", BoxesTouch.unhighlight, false);
@@ -49,7 +50,7 @@ var BoxesTouch = {
      */
     trackDrag:  function (event) {
         $.each(event.changedTouches, function (index, touch) {
-            if (this.drawingBox) {
+            if (this.drawingBox) { // JD: 8
                 var newOffset = {
                     left: (this.anchorX < touch.pageX) ? this.anchorX : touch.pageX,
                     top: (this.anchorY < touch.pageY) ? this.anchorY : touch.pageY
@@ -64,6 +65,7 @@ var BoxesTouch = {
                     left: touch.pageX - touch.target.deltaX,
                     top: touch.pageY - touch.target.deltaY
                 });
+                // JD: 7
             }
         });
         

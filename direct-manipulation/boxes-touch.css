@@ -17,6 +17,6 @@
     -webkit-box-shadow: 0px 0px 6px #88F;
 }
 
- body div{
- 	display: inline-block;
+ body div{ /* JD: 1, 2 */
+ 	display: inline-block; /* JD: 3 */
  }
